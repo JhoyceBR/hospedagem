@@ -48,7 +48,7 @@ public class AluguelDao {
         Connection conexao = null;
         try {
             conexao = postgres.getConection();
-            stmt = conexao.prepareStatement("SELECT alugueltable.valor, alugueltable.diarias, alugueltable.datasaida, hospedetable.nome, quartotable.id_quarto FROM alugueltable INNER JOIN hospedetable ON alugueltable.hospede=hospedetable.cpf INNER JOIN quartotable ON alugueltable.quarto=quartotable.id_quarto");
+            stmt = conexao.prepareStatement("SELECT * FROM alugueltable, hospedetable.nome, quartotable.id_quarto FROM alugueltable INNER JOIN hospedetable ON alugueltable.hospede=hospedetable.cpf INNER JOIN quartotable ON alugueltable.quarto=quartotable.id_quarto");
             rs = stmt.executeQuery();
            
             while (rs.next()) { 
